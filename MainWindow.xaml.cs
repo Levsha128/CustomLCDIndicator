@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LCDIncator;
+using System.Threading;
 
 namespace CustomLCDIndicator
 {
@@ -23,13 +24,16 @@ namespace CustomLCDIndicator
         public MainWindow()
         {
             InitializeComponent();
-            LCD a = new LCD();
-
-            AIMPPlayer b = new AIMPPlayer();
+            LCD a = new LCD();          
 
             a.connect("COM3", 9600);
-            a.write(b.getCurrentAuthor());
-            a.write(b.getCurrentSong());   
+            CPUUsage c = new CPUUsage();
+            while (true)
+            {
+                Thread.Sleep(1000);
+                
+                a.write(c.getCurrentValue());                
+            }
             
 
             a.disconnect();

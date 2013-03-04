@@ -109,6 +109,8 @@ namespace CustomLCDIndicator
                 return (byte)chr;
             if (chr >= 'A' && chr <= 'Z')
                 return (byte)chr;
+            if (chr >= '0' && chr <= '9')
+                return (byte)chr;
             if ("АаБбВвГгДдЕеЁёЖжЗзИиЙйКкЛлМмНнОоПпРрСсТтУуФфХхЦцЧчШшЩщЪъЫыЬьЭэЮюЯя !\"#$%&\\()*+,-./:;<=>?_".IndexOf(chr) >=0)
             {
                 return dictionary[chr];
