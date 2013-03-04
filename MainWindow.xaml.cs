@@ -24,8 +24,13 @@ namespace CustomLCDIndicator
         {
             InitializeComponent();
             LCD a = new LCD();
+
+            AIMPPlayer b = new AIMPPlayer();
+
             a.connect("COM3", 9600);
-            a.write("тест; привет(");
+            a.write(b.getCurrentAuthor());
+            a.write(b.getCurrentSong());   
+            
 
             a.disconnect();
         }
