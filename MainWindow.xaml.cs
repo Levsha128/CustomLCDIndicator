@@ -27,12 +27,12 @@ namespace CustomLCDIndicator
             LCD a = new LCD();          
 
             a.connect("COM3", 9600);
-            CPUUsage c = new CPUUsage();
+            MemoryUsage c = new MemoryUsage();
             while (true)
             {
                 Thread.Sleep(1000);
-                
-                a.write(c.getCurrentValue());                
+                a.clear();
+                a.write("testjkj процессора "+ c.getCurrentValue() +"%");                
             }
             
 
