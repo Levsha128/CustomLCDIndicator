@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LCDIncator;
 
 namespace CustomLCDIndicator
 {
@@ -22,6 +23,11 @@ namespace CustomLCDIndicator
         public MainWindow()
         {
             InitializeComponent();
+            LCD a = new LCD();
+            a.connect("COM3", 9600);
+            a.write("тест; привет(");
+
+            a.disconnect();
         }
     }
 }
